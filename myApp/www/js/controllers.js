@@ -28,24 +28,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MapCtrl', function($scope) {
-
-  var longitude = 113.738487;
-  var latitude = 34.361282;
-      $scope.mapOptions = {
-            center: {
-                longitude: longitude,
-                latitude: latitude
-            },
-            zoom: 15,
-            city: 'Xinzheng',
-            markers: [{
-                longitude: longitude,
-                latitude: latitude,
-                icon: 'http://img.coolwp.com/wp-content/uploads/2015/04/48-map-marker.png',
-                width: 48,
-                height: 48,
-                title: '在哪儿',
-                content: '新郑市梨河镇'
-            }]
-        };
+    
 });

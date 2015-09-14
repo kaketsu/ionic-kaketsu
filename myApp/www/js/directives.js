@@ -1,6 +1,7 @@
 angular.module('starter.directives', [])
 
-.directive("appMap", function () {
+    .directive('appMap', function () {
+
         return {
             restrict: "E",
             replace: true,
@@ -12,23 +13,27 @@ angular.module('starter.directives', [])
                 height: "@",        // Map height in pixels.
                 zoom: "@",          // Zoom level (one is totally zoomed out, 25 is very much zoomed in).
                 zoomControl: "@",   // Whether to show a zoom control on the map.
-                scaleControl: "@",   // Whether to show scale control on the map.
+                scaleControl: "@",  // Whether to show scale control on the map.
                 address:"@"
             },
+
             link: function (scope, element, attrs) {
                 var map;
                 // 百度地图API功能
                 map = new BMap.Map("allMap");
-                map.addControl(new BMap.ZoomControl());
-                // 创建地址解析器实例
-                var myGeo = new BMap.Geocoder();
-                // 将地址解析结果显示在地图上,并调整地图视野
-                myGeo.getPoint(scope.address, function(point){
-                    if (point) {
-                        map.centerAndZoom(point, 16);
-                        map.addOverlay(new BMap.Marker(point));
-                    }
-                }, "");
+
+                map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+
+                map.addControl(new BMap.MapTypeControl());  
+
+                map.setCurrentCity("北京");   
+
+                map.enableScrollWheelZoom(true);
+
+                
+                
             }
         };
+
+
     });
